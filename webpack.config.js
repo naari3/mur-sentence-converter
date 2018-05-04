@@ -1,5 +1,6 @@
 const webpack = require("webpack");
 const { join, resolve } = require("path");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: process.env.NODE_ENV || "development",
@@ -28,8 +29,7 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([
       {
-        from: path.join(__dirname, "src", "manifest.json"),
-        to: path.join(__dirname, "dist"),
+        from: resolve(__dirname, "src", "manifest.json"),
         transform: function(content, path) {
           // generates the manifest file using the package.json informations
           return Buffer.from(
