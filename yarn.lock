@@ -3924,9 +3924,9 @@ multimatch@^2.0.0:
     arrify "^1.0.0"
     minimatch "^3.0.0"
 
-murlifier@^1.0.3:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/murlifier/-/murlifier-1.0.5.tgz#5f2e5b7987ddbe348bc8372711caa5b08bb25d83"
+murlifier@^1.0.5:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/murlifier/-/murlifier-1.0.6.tgz#c9af9d6a1de632aff564884e0d1716a7bdf3b0ed"
   dependencies:
     each-cons "^1.0.0"
     kuromoji "^0.1.2"
