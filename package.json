@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "precommit": "lint-staged",
-    "start:dev": "webpack --watch",
+    "watch": "webpack --watch",
     "build": "webpack"
   },
   "lint-staged": {
