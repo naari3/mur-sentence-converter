@@ -1,14 +1,22 @@
 const webpack = require("webpack");
-const { join, resolve } = require("path");
+const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+
+const kuromojiRoot = path.dirname(require.resolve("kuromoji/package"));
+const dicPath = path.resolve(kuromojiRoot, "dict") + path.sep;
 
 module.exports = {
   mode: process.env.NODE_ENV || "development",
   entry: {
-    contentScripts: resolve(__dirname, "src", "scripts", "contentScripts.js")
+    contentScripts: path.resolve(
+      __dirname,
+      "src",
+      "scripts",
+      "contentScripts.js"
+    )
   },
   output: {
-    path: resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "dist"),
     filename: "scripts/[name].bundle.js"
   },
   target: "web",
@@ -24,12 +32,12 @@ module.exports = {
   },
   devServer: {
     port: 8080,
-    contentBase: resolve(__dirname, "dist")
+    contentBase: path.resolve(__dirname, "dist")
   },
   plugins: [
     new CopyWebpackPlugin([
       {
-        from: resolve(__dirname, "src", "manifest.json"),
+        from: path.resolve(__dirname, "src", "manifest.json"),
         transform: function(content, path) {
           // generates the manifest file using the package.json informations
           return Buffer.from(
@@ -40,6 +48,10 @@ module.exports = {
             })
           );
         }
+      },
+      {
+        from: dicPath,
+        to: path.resolve(__dirname, "dist", "dict")
       }
     ])
   ]
