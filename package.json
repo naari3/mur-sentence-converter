@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "start:dev": "webpack-dev-server",
+    "build": "webpack"
   },
   "lint-staged": {
     "*.js": [
