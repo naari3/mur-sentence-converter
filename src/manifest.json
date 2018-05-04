@@ -1,11 +1,15 @@
 {
   "manifest_version": 2,
-  "name": "name",
+  "name": "Mur Sentence Converter",
   "author": "naari3",
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "js": ["scripts/contentScripts.bundle.js"]
+      "js": ["scripts/contentScripts.bundle.js"],
+      "run_at": "document_end"
     }
+  ],
+  "web_accessible_resources": [
+    "dict/*"
   ]
 }
